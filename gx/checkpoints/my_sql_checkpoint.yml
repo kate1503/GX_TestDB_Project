@@ -1,0 +1,24 @@
+name: my_sql_checkpoint
+config_version: 1.0
+template_name:
+module_name: great_expectations.checkpoint
+class_name: Checkpoint
+run_name_template: '%Y%m%d-%H%M%S-Production.Product-tests-run'
+expectation_suite_name: product_table_expectation_suite
+batch_request:
+  datasource_name: sql_datasource_prod4
+  data_asset_name: sql_product_data
+  options: {}
+action_list:
+  - name: store_validation_result
+    action:
+      class_name: StoreValidationResultAction
+  - name: update_data_docs
+    action:
+      class_name: UpdateDataDocsAction
+evaluation_parameters: {}
+runtime_configuration: {}
+validations: []
+profilers: []
+ge_cloud_id:
+expectation_suite_ge_cloud_id:
